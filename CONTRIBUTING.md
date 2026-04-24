@@ -315,6 +315,14 @@ This project requires Python 3.10 and uses [uv](https://docs.astral.sh/uv/) for 
 
 ### Installing uv on Windows
 
+Standalone installer (recommended):
+
+```PowerShell
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+Or with winget:
+
 ```PowerShell
 winget install astral-sh.uv
 ```
@@ -390,6 +398,23 @@ uv run pytest tests/ -v
 ```
 
 All tests should pass before you begin working.
+
+### Command reference
+
+| Old (Poetry) | New (uv) |
+|---|---|
+| `poetry install` | `uv sync` |
+| `poetry run pytest` | `uv run pytest` |
+| `poetry run <tool>` | `uv run <tool>` |
+| `poetry add <package>` | `uv add <package>` |
+| `poetry add --group dev <package>` | `uv add --dev <package>` |
+| `poetry shell` | `source .venv/bin/activate` |
+
+### Existing team members
+
+If you have previously set up this project with Poetry, follow the
+[local environment migration checklist](https://gist.github.com/AaronCiuffo245484/fefabfbd564db0414d40954700e5489c#local-environment-migration-checklist)
+to migrate your local environment.
 
 ---
 
@@ -673,4 +698,4 @@ Note the following in the example above:
 
 ---
 
-document-version: 6 260424.1400
+document-version: 7 260424.1430
