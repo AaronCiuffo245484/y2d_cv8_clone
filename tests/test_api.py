@@ -1,21 +1,22 @@
 # tests/test_api.py
 """Integration tests for the thalianacv inference API.
-
 Tests cover the /health and /predict endpoints using FastAPI's TestClient.
 These tests run against the application directly without requiring a live server.
-
 To run:
-    poetry run pytest tests/test_api.py -v
+    uv run pytest tests/test_api.py -v
 """
-
 import io
 
+import pytest
 from fastapi.testclient import TestClient
 from PIL import Image
 
 from thalianacv.api.main import app
 
-client = TestClient(app)
+
+@pytest.fixture
+def client():
+    return TestClient(app)
 
 
 def make_test_image(fmt: str = "PNG") -> bytes:
@@ -33,14 +34,14 @@ def make_test_image(fmt: str = "PNG") -> bytes:
     return buf.getvalue()
 
 
-def test_health_returns_200():
+def test_health_returns_200(client):
     """GET /health returns HTTP 200 with status ok."""
     response = client.get("/health")
     assert response.status_code == 200
     assert response.json() == {"status": "ok"}
 
 
-def test_predict_valid_image_returns_200():
+def test_predict_valid_image_returns_200(client):
     """POST /predict with a valid PNG returns HTTP 200 with expected fields."""
     image_bytes = make_test_image("PNG")
     response = client.post(
@@ -56,7 +57,7 @@ def test_predict_valid_image_returns_200():
     assert "prediction_id" in body
 
 
-def test_predict_stub_returns_sentinel_values():
+def test_predict_stub_returns_sentinel_values(client):
     """POST /predict returns stub sentinel values while inference is not implemented."""
     image_bytes = make_test_image("PNG")
     response = client.post(
@@ -70,7 +71,7 @@ def test_predict_stub_returns_sentinel_values():
     assert body["prediction_id"] == -1
 
 
-def test_predict_wrong_file_type_returns_400():
+def test_predict_wrong_file_type_returns_400(client):
     """POST /predict with a non-image file returns HTTP 400."""
     response = client.post(
         "/predict",
@@ -79,7 +80,7 @@ def test_predict_wrong_file_type_returns_400():
     assert response.status_code == 400
 
 
-def test_predict_missing_file_returns_422():
+def test_predict_missing_file_returns_422(client):
     """POST /predict with no file attached returns HTTP 422."""
     response = client.post("/predict")
     assert response.status_code == 422
