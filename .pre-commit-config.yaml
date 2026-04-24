@@ -1,0 +1,37 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: ^tests/smoke/
+      - id: end-of-file-fixer
+        types: [python, yaml, markdown]
+        exclude: ^tests/smoke/
+      - id: check-yaml
+        exclude: ^tests/smoke/
+      - id: check-added-large-files
+        args: ['--maxkb=25000']
+  - repo: https://github.com/psf/black
+    rev: 24.3.0
+    hooks:
+      - id: black
+        exclude: ^tests/smoke/
+  - repo: local
+    hooks:
+      - id: sphinx-build
+        name: Build Sphinx documentation
+        entry: bash -c 'poetry run sphinx-apidoc -f -q -o docs/reference src/thalianacv && poetry run sphinx-build -b html -W docs/ docs/_build/html'
+        language: system
+        pass_filenames: false
+        files: \.(py|rst)$
+        exclude: ^tests/smoke/
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.0.0
+    hooks:
+      - id: flake8
+        exclude: ^tests/smoke/
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        exclude: ^tests/smoke/

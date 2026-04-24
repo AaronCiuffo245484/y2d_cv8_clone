@@ -1,0 +1,9 @@
+[flake8]
+# Match Black's default line length to prevent conflicts
+max-line-length = 88
+
+exclude = tests/smoke
+
+# E203: whitespace before ':' - Black uses this style for slices, so we ignore it
+# E701: multiple statements on one line - Black reformats empty classes this way
+extend-ignore = E203, E701

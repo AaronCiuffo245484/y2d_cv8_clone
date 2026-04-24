@@ -1,0 +1,16 @@
+name: Lint Code
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install pre-commit
+      - run: SKIP=sphinx-build pre-commit run --all-files

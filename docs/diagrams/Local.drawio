@@ -1,0 +1,59 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="ZVbWI5xUVZUiz-5H9bdT">
+    <mxGraphModel dx="1131" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="oXR4KXZSLFgolKuWBxEb-41" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="366" as="sourcePoint" />
+            <mxPoint x="400" y="416" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oXR4KXZSLFgolKuWBxEb-34" parent="1" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.computer;pointerEvents=1;" value="Local Computing" vertex="1">
+          <mxGeometry height="45" width="50" x="375" y="301" as="geometry" />
+        </mxCell>
+        <mxCell id="oXR4KXZSLFgolKuWBxEb-42" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="489" as="sourcePoint" />
+            <mxPoint x="400" y="548" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oXR4KXZSLFgolKuWBxEb-35" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Docker.svg;" value="&lt;div&gt;Frontend Container&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="41" width="50" x="375" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="oXR4KXZSLFgolKuWBxEb-36" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Container_Services_Deprecated.svg;" value="FastAPI Backend Container" vertex="1">
+          <mxGeometry height="60" width="68" x="366" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="oXR4KXZSLFgolKuWBxEb-39" parent="1" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.sql_database;" value="&lt;div&gt;PostgreSQL&lt;/div&gt;&lt;div&gt;Container&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="37.5" x="255" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="oXR4KXZSLFgolKuWBxEb-40" parent="1" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.computer;pointerEvents=1;" value="&lt;div&gt;Local file storage&lt;/div&gt;&lt;div&gt;(model weights, images)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="45" width="50" x="465" y="682" as="geometry" />
+        </mxCell>
+        <mxCell id="oXR4KXZSLFgolKuWBxEb-43" edge="1" parent="1" source="oXR4KXZSLFgolKuWBxEb-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="oXR4KXZSLFgolKuWBxEb-39">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="705" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oXR4KXZSLFgolKuWBxEb-44" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="705" />
+            </Array>
+            <mxPoint x="400" y="615" as="sourcePoint" />
+            <mxPoint x="465" y="705" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oXR4KXZSLFgolKuWBxEb-47" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=6;" value="" vertex="1">
+          <mxGeometry height="350" width="360" x="220" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="oXR4KXZSLFgolKuWBxEb-48" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Docker Compose" vertex="1">
+          <mxGeometry height="30" width="60" x="370" y="790" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

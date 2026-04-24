@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="UJR5Jc72TvHd_Y-c3Vz6">
+    <mxGraphModel dx="1664" dy="882" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="z5ShdwaYixk8t38VOhAP-45" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410" y="285" as="sourcePoint" />
+            <mxPoint x="410" y="335" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-47" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410" y="408" as="sourcePoint" />
+            <mxPoint x="410" y="467" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-49" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Container_Services_Deprecated.svg;" value="FastAPI Backend Container" vertex="1">
+          <mxGeometry height="60" width="68" x="376" y="599" as="geometry" />
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-50" parent="1" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.sql_database;" value="&lt;div&gt;PostgreSQL&lt;/div&gt;&lt;div&gt;Container&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="37.5" x="265" y="731" as="geometry" />
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-70" edge="1" parent="1" source="z5ShdwaYixk8t38VOhAP-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="z5ShdwaYixk8t38VOhAP-69">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="505" y="700" />
+              <mxPoint x="675" y="700" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-51" parent="1" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.computer;pointerEvents=1;" value="&lt;div&gt;Local file storage&lt;/div&gt;&lt;div&gt;(model weights, images)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="45" width="50" x="480" y="735" as="geometry" />
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-56" parent="1" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.server_rack;" value="BUas Server" vertex="1">
+          <mxGeometry height="50" width="50" x="385" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-57" parent="1" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.cloud_services_configuration_file;pointerEvents=1;" value="Portainer" vertex="1">
+          <mxGeometry height="50" width="47.5" x="388" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-58" parent="1" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.computer;pointerEvents=1;" value="User input/computer" vertex="1">
+          <mxGeometry height="45" width="50" x="650" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-61" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Docker.svg;" value="&lt;div&gt;Frontend Container&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="41" width="50" x="385" y="479" as="geometry" />
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-62" edge="1" parent="1" source="z5ShdwaYixk8t38VOhAP-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=-0.033;entryDx=0;entryDy=0;entryPerimeter=0;" target="z5ShdwaYixk8t38VOhAP-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-63" edge="1" parent="1" source="z5ShdwaYixk8t38VOhAP-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="z5ShdwaYixk8t38VOhAP-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-65" edge="1" parent="1" source="z5ShdwaYixk8t38VOhAP-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="z5ShdwaYixk8t38VOhAP-51">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="758" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-66" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="758" />
+            </Array>
+            <mxPoint x="420" y="662" as="sourcePoint" />
+            <mxPoint x="302.5" y="759" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-69" parent="1" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.cloud;" value="Azure Blob Storage" vertex="1">
+          <mxGeometry height="71.5" width="110" x="640" y="593.25" as="geometry" />
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-71" parent="1" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.automation;pointerEvents=1;" value="Azure ML Model Registry" vertex="1">
+          <mxGeometry height="102" width="113.33" x="660" y="418" as="geometry" />
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-72" edge="1" parent="1" source="z5ShdwaYixk8t38VOhAP-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.009;entryY=0.422;entryDx=0;entryDy=0;entryPerimeter=0;" target="z5ShdwaYixk8t38VOhAP-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-73" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=3;" value="" vertex="1">
+          <mxGeometry height="390" width="330" x="240" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="z5ShdwaYixk8t38VOhAP-74" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=3;" value="" vertex="1">
+          <mxGeometry height="680" width="390" x="210" y="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

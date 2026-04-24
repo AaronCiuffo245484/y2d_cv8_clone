@@ -1,0 +1,90 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+wheels/
+*.whl
+.eggs/
+pip-wheel-metadata/
+site-packages/
+# smoke test files
+_test*.py
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+**/*venv*/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+
+# Linting
+.mypy_cache/
+.ruff_cache/
+
+# Sphinx docs
+docs/_build/
+docs/reference/
+
+
+# Docker
+.docker/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Azure ML
+.azureml/
+azureml-logs/
+outputs/
+logs/
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# Model weights and data
+*.pt
+*.pth
+*.onnx
+*.pkl
+*.h5
+*.bin
+data/raw/
+data/processed/
+datasets/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Secrets and credentials
+*.pem
+*.key
+*.crt
+service_principal.json
+credentials.json
