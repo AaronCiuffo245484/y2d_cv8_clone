@@ -14,4 +14,4 @@ jobs:
           python-version: '3.10'
       - run: pip install uv
       - run: uv sync
-      - run: SKIP=sphinx-build uv run pre-commit run --all-files
+      - run: SKIP=sphinx-apidoc,sphinx-build-html uv run pre-commit run --all-files
