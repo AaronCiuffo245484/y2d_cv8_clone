@@ -4,6 +4,7 @@ This document describes the conventions and workflows that all contributors must
 
 - [Workflow](#workflow)
 - [Daily workflow](#daily-workflow)
+- [Docker](#docker)
 - [Branch naming](#branch-naming)
 - [Environment setup](#environment-setup)
 - [Jupyter notebooks](#jupyter-notebooks)
@@ -310,54 +311,36 @@ git push origin 'feature/271-ci-setup'
 
 ## Environment setup
 
-This project requires Python 3.10 and uses [Poetry](https://python-poetry.org/) for dependency and virtual environment management.
+This project requires Python 3.10 and uses [uv](https://docs.astral.sh/uv/) for dependency and virtual environment management.
 
-### Installing Poetry Windows
-
-Deactivate any conda/anaconda virtual environments:
+### Installing uv on Windows
 
 ```PowerShell
-conda deactivate
+winget install astral-sh.uv
 ```
 
-Do not install Poetry via pip. Use the official installer to keep it isolated from your Python environments:
+After installation, open a new terminal and verify:
 
 ```PowerShell
-(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -
+uv --version
 ```
 
-Add poetry to your path permenantly:
-
-```PowerShell
-[Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";C:\Users\larsp\AppData\Roaming\Python\Scripts", "User")
-```
-
-After installation, open a new tab in your terminal and verify:
-
-```PowerShell
-poetry --version
-
-```
-
-Expected output:
-
-```PowerShell
-Poetry (version 2.3.4)
-```
-
-### Installing Poetry POSIX (mac/linux)
-
-Do not install Poetry via pip. Use the official installer to keep it isolated from your Python environments:
-
+### Installing uv on Mac/Linux
 
 ```bash
-curl -sSL https://install.python-poetry.org | python3 -
+brew install uv
+```
+
+Or using the official installer:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 After installation, restart your terminal and verify:
 
 ```bash
-poetry --version
+uv --version
 ```
 
 ### Setting up the project
@@ -384,44 +367,26 @@ git rm --cached -r .
 git reset --hard
 ```
 
-**3. Configure Poetry**
-
-These are one-time settings per machine. They ensure Poetry creates the virtual environment inside the project root.
+**3. Install dependencies**
 
 ```bash
-poetry config virtualenvs.create true
-poetry config virtualenvs.in-project true
+uv sync
 ```
 
-On Windows, `virtualenvs.create` may be set to `false` by default. The commands above fix this.
+This creates a `.venv` directory in the project root and installs all dependencies from `uv.lock`. Do not delete or modify `uv.lock` manually.
 
-If you have previously run `poetry install` before applying these settings, the environment will be in the wrong place. Remove it and reinstall:
-
-```bash
-poetry env remove --all
-poetry install
-```
-
-**4. Install dependencies**
+**4. Install pre-commit hooks**
 
 ```bash
-poetry install
-```
-
-This creates a `.venv` directory in the project root and installs all dependencies from `poetry.lock`. Do not delete or modify `poetry.lock` manually.
-
-**5. Install pre-commit hooks**
-
-```bash
-poetry run pre-commit install --overwrite
+uv run pre-commit install --overwrite
 ```
 
 This wires pre-commit into your local git hooks so checks run automatically on every commit.
 
-**6. Verify your setup**
+**5. Verify your setup**
 
 ```bash
-poetry run pytest tests/ -v
+uv run pytest tests/ -v
 ```
 
 All tests should pass before you begin working.
@@ -434,23 +399,23 @@ Notebooks live in the `notebooks/` directory. This directory is tracked but its 
 
 ### Setting up the kernel in VS Code
 
-Install the `ipykernel` package into the Poetry environment:
+Install the `ipykernel` package into the uv environment:
 
 ```bash
-poetry add --group dev ipykernel
+uv add --dev ipykernel
 ```
 
 Register the kernel so VS Code can find it:
 
 ```bash
-poetry run python -m ipykernel install --user --name thalianacv --display-name "thalianacv"
+uv run python -m ipykernel install --user --name thalianacv --display-name "thalianacv"
 ```
 
 In VS Code, open a notebook and select the kernel by clicking the kernel picker in the top right. Choose `thalianacv` from the list. This ensures the notebook uses the same environment as the rest of the project.
 
 ### Activating the virtual environment for interactive use
 
-If you need to run `python` or `jupyter` directly in a terminal without prefixing every command with `poetry run`, activate the virtual environment manually:
+If you need to run `python` or `jupyter` directly in a terminal without prefixing every command with `uv run`, activate the virtual environment manually:
 
 ```bash
 # macOS and Linux
@@ -555,7 +520,7 @@ def bad_function(a,b,c):
 
 ```bash
 git add thalianacv/practice.py
-poetry run pre-commit run --all-files
+uv run pre-commit run --all-files
 ```
 
 **3. See what Black and isort auto-fixed:**
@@ -582,7 +547,7 @@ git push origin 'chore/860-commit-practice'
 
 ```bash
 git add thalianacv/practice.py
-poetry run pre-commit run --all-files
+uv run pre-commit run --all-files
 git add thalianacv/practice.py
 git commit -m "chore: fix violations in practice file"
 git push origin 'chore/860-commit-practice'
@@ -619,7 +584,7 @@ Commit `docs/api/index.rst` alongside your new module.
 ### Building the docs locally
 
 ```bash
-poetry run sphinx-build -b html docs/ docs/_build/html
+uv run sphinx-build -b html docs/ docs/_build/html
 ```
 
 Open `docs/_build/html/index.html` in a browser to review the output.
@@ -642,13 +607,13 @@ All code must be formatted with [Black](https://black.readthedocs.io/en/stable/)
 **Run Black manually:**
 
 ```bash
-poetry run black .
+uv run black .
 ```
 
 **Check without modifying files:**
 
 ```bash
-poetry run black --check .
+uv run black --check .
 ```
 
 The following rules apply to all code in this repository:
@@ -708,4 +673,4 @@ Note the following in the example above:
 
 ---
 
-<!-- document-version: 5 260429.1522 -->
+document-version: 6 260424.1400

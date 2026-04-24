@@ -1,18 +1,15 @@
+# Dockerfile
 FROM python:3.10-slim
 
 WORKDIR /app
 
-RUN pip install poetry
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 
-COPY pyproject.toml poetry.lock README.md ./
-
-RUN poetry config virtualenvs.create false \
-    && poetry install --without dev --no-root
-
+COPY pyproject.toml uv.lock README.md ./
 COPY src/ ./src/
 
-ENV PYTHONPATH=/app/src
+RUN uv sync --no-dev
 
 EXPOSE 8000
 
-CMD ["uvicorn", "thalianacv.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uv", "run", "uvicorn", "thalianacv.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
