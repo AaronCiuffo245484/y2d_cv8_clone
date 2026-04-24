@@ -70,4 +70,5 @@ dev = [
 environments = [
     "sys_platform == 'linux'",
     "sys_platform == 'darwin'",
+    "sys_platform == 'win32'",
 ]
