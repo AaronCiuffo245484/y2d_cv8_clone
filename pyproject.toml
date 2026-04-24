@@ -1,6 +1,6 @@
 [project]
 name = "thalianacv"
-version = "0.2.1"
+version = "0.3.0"
 description = "Computer vision package for plant image analysis targeting the HADES phenotyping system at NPEC"
 authors = [
     {name = "Group CV8", email = "245484@buas.nl"}
@@ -23,8 +23,7 @@ dependencies = [
     "typer (>=0.9.0,<1.0.0)",
     "fastapi (>=0.136.0,<0.137.0)",
     "uvicorn[standard] (>=0.45.0,<0.46.0)",
-    "python-multipart (>=0.0.26,<0.0.27)",
-    "opencv-python (>=4.8.0,<4.10.0)"
+    "python-multipart (>=0.0.26,<0.0.27)"
 ]
 
 [project.scripts]
@@ -44,12 +43,10 @@ packages = [{include = "thalianacv", from = "src"}]
 [tool.black]
 target-version = ["py310"]
 line-length = 88
-extend-exclude = "tests/smoke"
 
 [tool.isort]
 profile = "black"
 known_first_party = ["thalianacv"]
-extend_skip_glob = ["tests/smoke/*"]
 
 [dependency-groups]
 dev = [

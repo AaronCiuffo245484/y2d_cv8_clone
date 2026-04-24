@@ -3,19 +3,14 @@ repos:
     rev: v4.5.0
     hooks:
       - id: trailing-whitespace
-        exclude: ^tests/smoke/
       - id: end-of-file-fixer
         types: [python, yaml, markdown]
-        exclude: ^tests/smoke/
       - id: check-yaml
-        exclude: ^tests/smoke/
       - id: check-added-large-files
-        args: ['--maxkb=25000']
   - repo: https://github.com/psf/black
     rev: 24.3.0
     hooks:
       - id: black
-        exclude: ^tests/smoke/
   - repo: local
     hooks:
       - id: sphinx-build
@@ -24,14 +19,11 @@ repos:
         language: system
         pass_filenames: false
         files: \.(py|rst)$
-        exclude: ^tests/smoke/
   - repo: https://github.com/pycqa/flake8
     rev: 7.0.0
     hooks:
       - id: flake8
-        exclude: ^tests/smoke/
   - repo: https://github.com/pycqa/isort
     rev: 5.13.2
     hooks:
       - id: isort
-        exclude: ^tests/smoke/
